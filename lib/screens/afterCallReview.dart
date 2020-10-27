@@ -3,20 +3,21 @@ import 'dart:async';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:planet_hello/presentation/homePage.dart';
+import 'package:planet_hello/presentation/alertPage.dart';
 import 'package:planet_hello/widgets/bottomSheet.dart';
 import 'package:planet_hello/widgets/drawer.dart';
 import 'package:planet_hello/widgets/styles.dart';
+import 'package:planet_hello/presentation/homePage.dart';
+import 'afterCallReport.dart';
 
-import 'afterCallReview.dart';
-
-class callConnect extends StatefulWidget {
+class afterCallReview extends StatefulWidget {
   @override
-  _callConnectState createState() => new _callConnectState();
+  _afterCallReviewState createState() => new _afterCallReviewState();
 }
 
-class _callConnectState extends State<callConnect> {
+class _afterCallReviewState extends State<afterCallReview> {
 
 
   @override
@@ -60,10 +61,10 @@ class _callConnectState extends State<callConnect> {
 
 
 
-      bottomSheet: callConnectBottomSheet(
-        title: "Call",
-        time: "01:20:39",
-        endCall: (){
+      bottomSheet: reviewBottomSheet(
+        name: "John Doe,",
+        title: "Were You happy with call?",
+        submit: (){
           Navigator.pushReplacement(
               context,
               PageTransition(
@@ -71,7 +72,20 @@ class _callConnectState extends State<callConnect> {
                 type: PageTransitionType.rightToLeftWithFade,
                 duration: Duration(milliseconds: 1000),
                 alignment: Alignment.topCenter,
-                child: afterCallReview(),
+                child: homePage(),
+              ));
+        },
+
+        report: ()
+        {
+          Navigator.pushReplacement(
+              context,
+              PageTransition(
+                curve: Curves.fastOutSlowIn,
+                type: PageTransitionType.rightToLeftWithFade,
+                duration: Duration(milliseconds: 1000),
+                alignment: Alignment.topCenter,
+                child: afterCallReport(),
               ));
         },
 
@@ -98,16 +112,16 @@ class _callConnectState extends State<callConnect> {
                 Expanded(
                   flex: 2,
                   child: Center(
-                    child: WavyAnimatedTextKit(
-                      textStyle: TextStyle(
+                    child: Text(
+                  "Review",
+                      style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: basicColor
                       ),
-                      text: [
-                        "Connected"
-                      ],
-                      isRepeatingAnimation: true,
+
+
+
                     ),
                   ),
                 ),

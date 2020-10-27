@@ -54,7 +54,7 @@ class BottomSheetWidget extends StatelessWidget {
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(50),
             topLeft: Radius.circular(50)),
-      border: Border.all(color: Colors.grey)
+      border: Border.all(color: Colors.white)
     ),
     padding: EdgeInsets.all(16),
     child: Column(
@@ -228,7 +228,7 @@ class SearchingBottomSheet extends StatelessWidget {
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(50),
             topLeft: Radius.circular(50)),
-      border: Border.all(color: Colors.grey)
+      border: Border.all(color: Colors.white)
     ),
     padding: EdgeInsets.all(16),
     child: Column(
@@ -324,7 +324,7 @@ class callConnectBottomSheet extends StatelessWidget {
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(50),
             topLeft: Radius.circular(50)),
-      border: Border.all(color: Colors.grey)
+      border: Border.all(color: Colors.white)
     ),
     padding: EdgeInsets.all(16),
     child: Column(
@@ -333,19 +333,14 @@ class callConnectBottomSheet extends StatelessWidget {
       children: <Widget>[
 
 
-        Container(
-          width: 60,
-          height: 40,
-          child: WavyAnimatedTextKit(
-            textStyle: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: basicColor
-            ),
-              text: [
-                title
-              ],
-          isRepeatingAnimation: true,
+        Text(
+
+          title,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: basicColor
           ),
         ),
         const SizedBox(height: 2),
@@ -396,10 +391,8 @@ class callConnectBottomSheet extends StatelessWidget {
                   color: Colors.redAccent,
                   textColor: Colors.white,
                   padding: EdgeInsets.all(8.0),
-                  onPressed: () {
+                  onPressed: endCall,
 
-                    // Accepet,
-                  },
                   child: Icon(Icons.call_end_outlined, color: Colors.white,size: 32,)
               ),
             ),
@@ -424,6 +417,346 @@ class callConnectBottomSheet extends StatelessWidget {
             ),
           ],
         ),
+      ],
+    ),
+  );
+}
+
+
+class reviewBottomSheet extends StatelessWidget {
+
+
+
+  final String name;
+  final String title;
+  final VoidCallback thumup;
+  final VoidCallback thumddown;
+  final VoidCallback report;
+  final VoidCallback submit;
+
+
+  const reviewBottomSheet({
+    @required this.title,
+    @required this.name,
+    @required this.thumup,
+    @required this.thumddown,
+    @required this.report,
+    @required this.submit,
+    Key key,
+  }) : super(key: key);
+
+
+
+
+  @override
+  Widget build(BuildContext context) => Container(
+
+
+
+
+    height: MediaQuery.of(context).size.height/3,
+    decoration: BoxDecoration(
+
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 2,
+            blurRadius: 7,
+            offset: Offset(0, -7), // changes position of shadow
+          ),
+        ],
+
+      color: Colors.white,
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(50),
+            topLeft: Radius.circular(50)),
+      border: Border.all(color: Colors.white)
+    ),
+    padding: EdgeInsets.all(16),
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+
+
+        Text(
+          name,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.grey
+          ),
+        ),
+        const SizedBox(height: 2),
+
+       Text(
+
+         title,
+         textAlign: TextAlign.center,
+         style: TextStyle(
+             fontSize: 22,
+             fontWeight: FontWeight.w400,
+             color: basicColor
+         ),
+       ),
+
+        const SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            
+
+            Container(
+              // width: MediaQuery.of(context).size.width/4,
+              height: MediaQuery.of(context).size.height/14,
+              child: RaisedButton(
+                  shape: CircleBorder(
+
+                      side: BorderSide(
+                        color: basicColor,
+                      )),
+                  color: basicColor,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.all(8.0),
+                  onPressed: () {
+
+                    // Accepet,
+                  },
+                  child: Icon(Icons.thumb_up, color: Colors.white,size: 22,)
+              ),
+            ),
+            Container(
+              // width: MediaQuery.of(context).size.width/4,
+              height: MediaQuery.of(context).size.height/14,
+              child: RaisedButton(
+                  shape: CircleBorder(
+
+                      side: BorderSide(
+                        color: Colors.blueGrey,
+                      )),
+                  color: Colors.blueGrey,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.all(8.0),
+                  onPressed: () {
+
+                    // Accepet,
+                  },
+                  child: Icon(Icons.thumb_down, color: Colors.white,size: 22,)
+              ),
+            ),
+            Container(
+              // width: MediaQuery.of(context).size.width/4,
+              height: MediaQuery.of(context).size.height/14,
+              child: RaisedButton(
+                shape: CircleBorder(
+                    side: BorderSide(
+                      color: Colors.redAccent,
+                    )),
+                color: Colors.redAccent,
+                textColor: Colors.white,
+                padding: EdgeInsets.all(8.0),
+                onPressed: report,
+                child: Icon(Icons.report, color: Colors.white,size: 22,)
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 30),
+
+        Container(
+          width: MediaQuery.of(context).size.width/5,
+          height: MediaQuery.of(context).size.height/14,
+          child: RaisedButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                  side: BorderSide(
+                    color: basicColor,
+                  )),
+              color: basicColor,
+              textColor: Colors.white,
+              padding: EdgeInsets.all(8.0),
+              onPressed: submit,
+              child: Text(
+                "Submit",
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w400
+                ),
+              ),
+          ),
+        ),
+
+      ],
+    ),
+  );
+}
+
+
+class reportBottomSheet extends StatelessWidget {
+
+
+
+  final String name;
+  final String title;
+  final VoidCallback thumup;
+  final VoidCallback thumddown;
+  final VoidCallback report;
+  final VoidCallback submit;
+
+
+  const reportBottomSheet({
+    @required this.title,
+    @required this.name,
+    @required this.thumup,
+    @required this.thumddown,
+    @required this.report,
+    @required this.submit,
+    Key key,
+  }) : super(key: key);
+
+
+
+
+  @override
+  Widget build(BuildContext context) => Container(
+
+
+
+
+    height: MediaQuery.of(context).size.height/3,
+    decoration: BoxDecoration(
+
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 2,
+            blurRadius: 7,
+            offset: Offset(0, -7), // changes position of shadow
+          ),
+        ],
+
+      color: Colors.white,
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(50),
+            topLeft: Radius.circular(50)),
+      border: Border.all(color: Colors.white)
+    ),
+    padding: EdgeInsets.all(16),
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+
+
+        Text(
+          name,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.grey
+          ),
+        ),
+        const SizedBox(height: 2),
+
+       Text(
+
+         title,
+         textAlign: TextAlign.center,
+         style: TextStyle(
+             fontSize: 22,
+             fontWeight: FontWeight.w400,
+             color: basicColor
+         ),
+       ),
+
+        const SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+
+
+            Container(
+              // width: MediaQuery.of(context).size.width/4,
+              height: MediaQuery.of(context).size.height/14,
+              child: RaisedButton(
+                  shape: CircleBorder(
+
+                      side: BorderSide(
+                        color: basicColor,
+                      )),
+                  color: basicColor,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.all(8.0),
+                  onPressed: () {
+
+                    // Accepet,
+                  },
+                  child: Icon(Icons.thumb_up, color: Colors.white,size: 22,)
+              ),
+            ),
+            Container(
+              // width: MediaQuery.of(context).size.width/4,
+              height: MediaQuery.of(context).size.height/14,
+              child: RaisedButton(
+                  shape: CircleBorder(
+
+                      side: BorderSide(
+                        color: Colors.blueGrey,
+                      )),
+                  color: Colors.blueGrey,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.all(8.0),
+                  onPressed: () {
+
+                    // Accepet,
+                  },
+                  child: Icon(Icons.thumb_down, color: Colors.white,size: 22,)
+              ),
+            ),
+            Container(
+              // width: MediaQuery.of(context).size.width/4,
+              height: MediaQuery.of(context).size.height/14,
+              child: RaisedButton(
+                shape: CircleBorder(
+                    side: BorderSide(
+                      color: Colors.redAccent,
+                    )),
+                color: Colors.redAccent,
+                textColor: Colors.white,
+                padding: EdgeInsets.all(8.0),
+                onPressed: report,
+                child: Icon(Icons.report, color: Colors.white,size: 22,)
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 30),
+
+        Container(
+          width: MediaQuery.of(context).size.width/5,
+          height: MediaQuery.of(context).size.height/14,
+          child: RaisedButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                  side: BorderSide(
+                    color: basicColor,
+                  )),
+              color: basicColor,
+              textColor: Colors.white,
+              padding: EdgeInsets.all(8.0),
+              onPressed: submit,
+              child: Text(
+                "Submit",
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w400
+                ),
+              ),
+          ),
+        ),
+
       ],
     ),
   );

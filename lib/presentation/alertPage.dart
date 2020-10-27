@@ -62,7 +62,7 @@ class _alertPageState extends State<alertPage> {
         point4: "Complete your profile",
         point5: "4 digits Code sent to your mobile",
         accept: (){
-          Navigator.push(
+          Navigator.pushReplacement(
               context,
               PageTransition(
                 curve: Curves.fastOutSlowIn,

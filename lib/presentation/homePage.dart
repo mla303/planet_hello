@@ -65,7 +65,7 @@ class _homePageState extends State<homePage> {
                       textColor: basicColor,
                       padding: EdgeInsets.all(8.0),
                       onPressed: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                             context,
                             PageTransition(
                               curve: Curves.bounceOut,
