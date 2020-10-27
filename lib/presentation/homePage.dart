@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_country_picker/flutter_country_picker.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:pinput/pin_put/pin_put.dart';
 import 'package:planet_hello/widgets/drawer.dart';
 import 'package:planet_hello/widgets/styles.dart';
 
@@ -329,6 +328,10 @@ class _homePageState extends State<homePage> {
                     ),
                   ),
                 ),
+
+
+
+
               ],
             ),
           ],

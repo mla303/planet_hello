@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_country_picker/flutter_country_picker.dart';
-import 'package:pinput/pin_put/pin_put.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:planet_hello/widgets/styles.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sms_otp_auto_verify/sms_otp_auto_verify.dart';
@@ -86,32 +86,46 @@ class _verifyOTPState extends State<verifyOTP> {
 
 
                         Container(
+                          // color: Colors.red,
+
                           margin: EdgeInsets.fromLTRB(Width * .1,
                               Width * .05, Width * .1, Width * .05),
-                          child: PinPut(
+                          child: PinCodeTextField(
                             textStyle: TextStyle(
                                 color: basicColor
                             ),
-                            eachFieldWidth: Width * .1,
-                            eachFieldHeight: Width * .1,
-                            separator: SizedBox(
-                              width: Width * .1,
+
+                            appContext: context,
+                            length: 4,
+                            obscureText: false,
+                            animationType: AnimationType.fade,
+                            pinTheme: PinTheme(
+                              shape: PinCodeFieldShape.box,
+                              activeColor: Colors.grey,
+                              inactiveFillColor: Colors.white,
+                              selectedFillColor: Colors.white,
+                              inactiveColor: Colors.grey,
+                              selectedColor: Colors.grey,
+                              borderRadius: BorderRadius.circular(5),
+
+
+                              fieldHeight: 42,
+                              fieldWidth: 40,
+                              activeFillColor: Colors.white,
                             ),
-                            fieldsCount: 4,
-                            submittedFieldDecoration: _pinPutDecoration.copyWith(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            selectedFieldDecoration: _pinPutDecoration,
-                            followingFieldDecoration: _pinPutDecoration.copyWith(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(5.0),
-                              border: Border.all(
-                                color: Colors.white.withOpacity(0),
-                              ),
+                            animationDuration: Duration(milliseconds: 300),
+
+                            // backgroundColor: Colors.blue.shade50,
+                            enableActiveFill: true,
+                            // errorAnimationController: errorController,
+                            // controller: textEditingController,
+                            // pastedTextStyle: TextStyle(
+                            //   color: Colors.green.shade600,
+                            //   fontWeight: FontWeight.bold,
+                            // ),
+
                             ),
                           ),
-                        ),
 
 
                       ],

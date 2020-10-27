@@ -77,7 +77,7 @@ class BottomSheetWidget extends StatelessWidget {
           child: RichText(text: TextSpan(
             children: [
               WidgetSpan(
-                child: Icon(Icons.stop_rounded,color: basicColor,size: 16,),
+                child: Icon(Icons.stop,color: basicColor,size: 16,),
               ),
               TextSpan(text: point1,style: TextStyle(fontSize: 16,color: Colors.grey)),
             ]
@@ -88,7 +88,7 @@ class BottomSheetWidget extends StatelessWidget {
           child: RichText(text: TextSpan(
             children: [
               WidgetSpan(
-                child: Icon(Icons.stop_rounded,color: basicColor,size: 16,),
+                child: Icon(Icons.stop,color: basicColor,size: 16,),
               ),
               TextSpan(text: point2,style: TextStyle(fontSize: 16,color: Colors.grey)),
             ]
@@ -99,7 +99,7 @@ class BottomSheetWidget extends StatelessWidget {
           child: RichText(text: TextSpan(
             children: [
               WidgetSpan(
-                child: Icon(Icons.stop_rounded,color: basicColor,size: 16,),
+                child: Icon(Icons.stop,color: basicColor,size: 16,),
               ),
               TextSpan(text: point3,style: TextStyle(fontSize: 16,color: Colors.grey)),
             ]
@@ -110,7 +110,7 @@ class BottomSheetWidget extends StatelessWidget {
           child: RichText(text: TextSpan(
             children: [
               WidgetSpan(
-                child: Icon(Icons.stop_rounded,color: basicColor,size: 16,),
+                child: Icon(Icons.stop,color: basicColor,size: 16,),
               ),
               TextSpan(text: point4,style: TextStyle(fontSize: 16,color: Colors.grey)),
             ]
@@ -121,7 +121,7 @@ class BottomSheetWidget extends StatelessWidget {
           child: RichText(text: TextSpan(
             children: [
               WidgetSpan(
-                child: Icon(Icons.stop_rounded,color: basicColor,size: 16,),
+                child: Icon(Icons.stop,color: basicColor,size: 16,),
               ),
               TextSpan(text: point5,style: TextStyle(fontSize: 16,color: Colors.grey)),
             ]
@@ -393,7 +393,7 @@ class callConnectBottomSheet extends StatelessWidget {
                   padding: EdgeInsets.all(8.0),
                   onPressed: endCall,
 
-                  child: Icon(Icons.call_end_outlined, color: Colors.white,size: 32,)
+                  child: Icon(Icons.call_end, color: Colors.white,size: 32,)
               ),
             ),
             Container(
@@ -621,10 +621,7 @@ class reportBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
 
-
-
-
-    height: MediaQuery.of(context).size.height/3,
+    height: MediaQuery.of(context).size.height/2,
     decoration: BoxDecoration(
 
         boxShadow: [
@@ -719,21 +716,61 @@ class reportBottomSheet extends StatelessWidget {
               // width: MediaQuery.of(context).size.width/4,
               height: MediaQuery.of(context).size.height/14,
               child: RaisedButton(
-                shape: CircleBorder(
-                    side: BorderSide(
-                      color: Colors.redAccent,
-                    )),
-                color: Colors.redAccent,
-                textColor: Colors.white,
-                padding: EdgeInsets.all(8.0),
-                onPressed: report,
-                child: Icon(Icons.report, color: Colors.white,size: 22,)
+                  shape: CircleBorder(
+
+                      side: BorderSide(
+                        color: Colors.redAccent,
+                      )),
+                  color: Colors.redAccent,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.all(8.0),
+                  onPressed: () {
+
+                    // Accepet,
+                  },
+                  child: Icon(Icons.report, color: Colors.white,size: 22,)
               ),
             ),
+
           ],
         ),
         const SizedBox(height: 30),
 
+        TextFormField(
+          textInputAction: TextInputAction.next,
+          textAlign: TextAlign.start,
+          // style: TextStyle(
+          //   color: Color(0xff00C4B1),
+          // ),
+          cursorColor: Color(0xff000000),
+          keyboardType: TextInputType.number,
+
+          decoration: new InputDecoration(
+
+            filled: true,
+            fillColor: Colors.white,
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.grey,),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide:
+              BorderSide(color: Colors.white, width: 0.0),
+            ),
+            hintText: "Postal Code",
+            hintStyle: TextStyle(fontSize: 18),
+
+          ),
+
+          // The validator receives the text that the user has entered.
+          // validator: (value) {
+          //   if (value.isEmpty) {
+          //     return 'Please enter some text';
+          //   }
+          //   return null;
+          // },
+        ),
+        const SizedBox(height: 30),
         Container(
           width: MediaQuery.of(context).size.width/5,
           height: MediaQuery.of(context).size.height/14,

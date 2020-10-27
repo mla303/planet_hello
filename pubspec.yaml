@@ -36,9 +36,9 @@ dependencies:
   page_transition: any
   flutter_country_picker: any
   sms_otp_auto_verify: any
-  pinput: any
   flutter_markdown: any
   animated_text_kit: any
+  pin_code_fields: any
 
 dev_dependencies:
   flutter_test:

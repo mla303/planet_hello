@@ -40,6 +40,8 @@ class _afterCallReportState extends State<afterCallReport> {
 
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomPadding: true,
       // appBar: PreferredSize(
       //   preferredSize: Size.fromHeight(80.0),
       //   child: AppBar(
